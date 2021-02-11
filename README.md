@@ -1,6 +1,6 @@
 # rxjs-indexeddb
 
-Currently a very small package wich helps you handle indexed db using `rxjs library`
+Currently a very small package wich helps you handle indexed db using `rxjs observables`
 
 ## Usage
 > You can clone the repository and import the methods  
