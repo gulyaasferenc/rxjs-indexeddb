@@ -36,7 +36,7 @@ rxjsIndexedDb.createStore({
 rxjsIndexedDb.add({
     dbName: string,
     storeName: string,
-    values = [[{key: 'yourKey', value: 'yourValue'}]]
+    values: [{key: 'yourKey', value: 'yourValue'}]
 })
 ```
 > Get a value from the named indexed db based on the given key  
