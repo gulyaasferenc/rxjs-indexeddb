@@ -1,8 +1,8 @@
-const createDb = require('./createDb')
-const createStore = require('./createStore')
-const add = require('./add')
-const getValue = require('./getValue')
-const updateValue = require('./updateValue')
+const createDb = require('./methods/createDb')
+const createStore = require('./methods/createStore')
+const add = require('./methods/add')
+const getValue = require('./methods/getValue')
+const updateValue = require('./methods/updateValue')
 
 
 module.exports = () => {
