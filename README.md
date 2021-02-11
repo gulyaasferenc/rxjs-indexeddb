@@ -13,6 +13,7 @@ const rxjsIndexedDb = rxjsIndexddb()
 ```
 
 ### For now basic methods can be used:  
+-----------
 > Creates indexed db in your browser without a version  
 > Returns an observable wich will grant the db instance
 ```javascript
@@ -20,6 +21,7 @@ rxjsIndexedDb.createDb({
     dbName: string
 })
 ```  
+-----------
 > Creates store for the named indexed db  
 > It will upgrade the db version automatically in every case  
 > Returns void
@@ -30,6 +32,7 @@ rxjsIndexedDb.createStore({
     storeName: string
 })
 ```
+-----------
 > Add more or one new key-value pars to the store.  
 > Returns void
 ```javascript
@@ -39,6 +42,7 @@ rxjsIndexedDb.add({
     values: [{key: 'yourKey', value: 'yourValue'}]
 })
 ```
+-----------
 > Get a value from the named indexed db based on the given key  
 > 
 > Returns observable wich gives you the asked value of the given key
@@ -49,6 +53,7 @@ rxjsIndexedDb.getValue({
     key: string
 })
 ```
+-----------
 > Update one specific value in the named db and object store based  on the given key and value  
 > Returns an observable wich will give you an object like {key: value}
 ```javascript
@@ -59,6 +64,7 @@ rxjsIndexedDb.updateValue({
     value: any
 })
 ```
+-----------
 `As you can see, all of the methods expect object inputs with the keys above ` 
 
 ### There will be a lot of new features in the future
