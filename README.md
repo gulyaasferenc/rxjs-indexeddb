@@ -8,7 +8,7 @@ Currently a very small package wich helps you handle indexed db using `rxjs obse
 
 ### Import like this
 ```
-import rxjsIndexddb from '../rxjs-indexeddb/index.js';
+import rxjsIndexddb from 'your/path/rxjs-indexeddb/index.js';
 const rxjsIndexedDb = rxjsIndexddb()
 ```
 
