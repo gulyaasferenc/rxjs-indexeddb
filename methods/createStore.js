@@ -10,9 +10,6 @@ module.exports = ({
     storeName,
     options = null
 }) => {
-
-    const errorList = []
-
     window.indexedDB.databases()
         .then(dbs => {
             const currentVersion = dbs.find(el => el.name === dbName).version
@@ -23,7 +20,7 @@ module.exports = ({
             const onError = fromEvent(myDb, 'error')
 
             onError.subscribe(error => {
-                errorList.push(error)
+                throw new Error(error)
             })
 
             onSuccess.subscribe(db => {
@@ -31,12 +28,9 @@ module.exports = ({
                 try {
                     myDb.createObjectStore(storeName, options)
                 } catch (error) {
-                    errorList.push(error)
+                    throw new Error(error)
                 }
-                
+
             })
-            if (errorList.length > 0) return errorList
         })
-
-
 }

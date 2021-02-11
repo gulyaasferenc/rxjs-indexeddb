@@ -10,16 +10,13 @@ module.exports = ({
     storeName,
     values = []
 }) => {
-
-    const errorList = []
-
     const myDb = window.indexedDB.open(dbName)
 
     const onSuccess = fromEvent(myDb, 'success')
     const onError = fromEvent(myDb, 'error')
 
     onError.subscribe(error => {
-        errorList.push(error)
+        throw new Error(error)
     })
 
     onSuccess.subscribe(db => {
@@ -31,11 +28,9 @@ module.exports = ({
                 .add(value.value, value.key)
             const onError = fromEvent(request, 'error')
             onError.subscribe(error => {
-                errorList.push(error)
+                throw new Error(error)
             })
         })
     })
-
-    if (errorList.length > 0) return errorList
 
 }

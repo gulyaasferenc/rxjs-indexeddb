@@ -19,7 +19,7 @@ const rxjsIndexedDb = rxjsIndexddb()
 ```javascript
 rxjsIndexedDb.createDb({
     dbName: string
-})
+}).subscribe(db => yourFunction(db))
 ```  
 -----------
 > Creates store for the named indexed db  
@@ -51,7 +51,7 @@ rxjsIndexedDb.getValue({
     dbName: string,
     storeName: string,
     key: string
-})
+}).subscribe(value => yourFunction(value))
 ```
 -----------
 > Update one specific value in the named db and object store based  on the given key and value  
@@ -62,7 +62,7 @@ rxjsIndexedDb.updateValue({
     storeName: string,
     key: string,
     value: any
-})
+}).subscribe(updatedValue => yourFunction(updatedValue))
 ```
 -----------
 `As you can see, all of the methods expect object inputs with the keys above ` 
