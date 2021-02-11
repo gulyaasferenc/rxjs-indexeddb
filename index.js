@@ -2,6 +2,7 @@ const createDb = require('./createDb')
 const createStore = require('./createStore')
 const add = require('./add')
 const getValue = require('./getValue')
+const updateValue = require('./updateValue')
 
 
 module.exports = () => {
@@ -17,6 +18,7 @@ module.exports = () => {
         createDb,
         createStore,
         add,
-        getValue
+        getValue,
+        updateValue
     }
 }
