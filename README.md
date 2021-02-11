@@ -65,6 +65,17 @@ rxjsIndexedDb.updateValue({
 }).subscribe(updatedValue => yourFunction(updatedValue))
 ```
 -----------
+> Removes a key and its value from the specified indexed db objectstore  
+> Returns void
+
+```javascript
+rxjsidb.removeKeyValue({
+    dbName: string,
+    storeName: string,
+    key: string
+})
+```
+-----------
 * `As you can see, all of the methods expect object inputs with the keys above `  
 
 * `void methods will throw new error if any trouble happens`  

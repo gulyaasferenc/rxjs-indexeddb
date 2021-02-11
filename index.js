@@ -3,6 +3,7 @@ const createStore = require('./methods/createStore')
 const add = require('./methods/add')
 const getValue = require('./methods/getValue')
 const updateValue = require('./methods/updateValue')
+const removeKeyValue = require('./methods/removeKeyValue')
 
 
 module.exports = () => {
@@ -19,6 +20,7 @@ module.exports = () => {
         createStore,
         add,
         getValue,
-        updateValue
+        updateValue,
+        removeKeyValue
     }
 }
