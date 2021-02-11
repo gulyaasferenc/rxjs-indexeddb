@@ -1,7 +1,7 @@
 {
   "name": "rxjs-indexddb",
-  "version": "1.0.0",
-  "description": "'manage you indexed db with rxjs'",
+  "version": "0.1.0",
+  "description": "'manage your indexed db with rxjs observables'",
   "main": "index.js",
   "repository": "https://github.com/gulyaasferenc/rxjs-indexeddb",
   "author": "gulyaasferenc",
