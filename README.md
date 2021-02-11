@@ -65,7 +65,10 @@ rxjsIndexedDb.updateValue({
 }).subscribe(updatedValue => yourFunction(updatedValue))
 ```
 -----------
-`As you can see, all of the methods expect object inputs with the keys above ` 
+* `As you can see, all of the methods expect object inputs with the keys above `  
+
+* `void methods will throw new error if any trouble happens`  
+* `where an observable is returned you can subscribe on the error events as well` 
 
 ### There will be a lot of new features in the future
 soon..
