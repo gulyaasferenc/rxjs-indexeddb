@@ -33,7 +33,7 @@ rxjsIndexedDb.createStore({
 })
 ```
 -----------
-> Add more or one new key-value pars to the store.  
+> Add more or one new key-value pairs to the store.  
 > Returns void
 ```javascript
 rxjsIndexedDb.add({
@@ -43,8 +43,7 @@ rxjsIndexedDb.add({
 })
 ```
 -----------
-> Get a value from the named indexed db based on the given key  
-> 
+> Get a value from the named indexed db and object store based on the given key
 > Returns observable wich gives you the asked value of the given key
 ```javascript
 rxjsIndexedDb.getValue({
