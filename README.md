@@ -50,7 +50,7 @@ rxjsIndexedDb.getValue({
 })
 ```
 > Update one specific value in the named db and object store based  on the given key and value  
-> Returns an object {key: value}
+> Returns an observable wich will give you an object like {key: value}
 ```javascript
 rxjsIndexedDb.updateValue({
     dbName: string,
