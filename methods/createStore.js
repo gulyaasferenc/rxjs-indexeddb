@@ -15,7 +15,6 @@ module.exports = ({
 
     window.indexedDB.databases()
         .then(dbs => {
-            console.log(dbs)
             const currentVersion = dbs.find(el => el.name === dbName).version
 
             const myDb = window.indexedDB.open(dbName, +currentVersion + 1)
@@ -36,7 +35,6 @@ module.exports = ({
                 }
                 
             })
-console.log(errorList)
             if (errorList.length > 0) return errorList
         })
 
