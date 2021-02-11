@@ -1,0 +1,13 @@
+{
+  "name": "rxjs-indexddb",
+  "version": "1.0.0",
+  "description": "'manage you indexed db with rxjs'",
+  "main": "index.js",
+  "repository": "https://github.com/gulyaasferenc/rxjs-indexeddb",
+  "author": "gulyaasferenc",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "rxjs": "^6.6.3"
+  }
+}
