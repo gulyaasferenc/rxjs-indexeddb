@@ -21,14 +21,14 @@ module.exports = ({
 
     onSuccess.subscribe(db => {
         const myDb = db.target.result
-            const request = myDb
-                .transaction([storeName], "readwrite")
-                .objectStore(storeName)
-                .delete(key)
-            const onError = fromEvent(request, 'error')
-            onError.subscribe(error => {
-                throw new Error(error)
-            })
+        const request = myDb
+            .transaction([storeName], "readwrite")
+            .objectStore(storeName)
+            .delete(key)
+        const onError = fromEvent(request, 'error')
+        onError.subscribe(error => {
+            throw new Error(error)
+        })
     })
 
 }
