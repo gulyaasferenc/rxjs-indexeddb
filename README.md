@@ -3,7 +3,7 @@
 Currently a very small package wich helps you handle indexed db using `rxjs observables`
 
 ## Usage
-> You can clone the repository and import the library  
+> You can clone the repository, run yarn/npm install and import the library  
 > Afterward you can use the methods like below
 
 ### Import like this
