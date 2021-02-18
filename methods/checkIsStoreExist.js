@@ -19,7 +19,6 @@ module.exports = ({
 
         onDBError.subscribe(error => {
             subject.error(error)
-            subject.complete()
         })
 
         onDBSuccess.subscribe(db => {

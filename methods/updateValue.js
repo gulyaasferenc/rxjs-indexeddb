@@ -43,7 +43,6 @@ module.exports = ({
 
                 updateError.subscribe(error => {
                     subject.error(error)
-                    subject.complete()
                 })
 
                 updateSuccess.subscribe(resp => {
