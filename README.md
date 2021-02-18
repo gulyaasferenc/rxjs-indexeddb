@@ -7,7 +7,7 @@ Currently a very small package wich helps you handle indexed db using `rxjs obse
 > Afterward you can use the methods like below
 
 ### Import like this
-```
+```javascript
 import rxjsIndexddb from 'your/path/rxjs-indexeddb/index.js';
 const rxjsIndexedDb = rxjsIndexddb()
 ```
@@ -73,6 +73,16 @@ rxjsidb.removeKeyValue({
     storeName: string,
     key: string
 })
+```
+-----------
+> Check wether the specified object store is exist  
+> Returns an observable which will grant a boolean value based on the result  
+  
+```javascript
+rxjsidb.checkIsStoreExist({
+    dbName: string,
+    storeName: string
+}).subscribe(isStoreExist => if (isStoreExist) doSomething())
 ```
 -----------
 * `As you can see, all of the methods expect object inputs with the keys above `  
