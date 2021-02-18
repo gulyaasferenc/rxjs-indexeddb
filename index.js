@@ -4,6 +4,7 @@ const add = require('./methods/add')
 const getValue = require('./methods/getValue')
 const updateValue = require('./methods/updateValue')
 const removeKeyValue = require('./methods/removeKeyValue')
+const checkIsStoreExist = require('./methods/checkIsStoreExist')
 
 
 module.exports = () => {
@@ -21,6 +22,7 @@ module.exports = () => {
         add,
         getValue,
         updateValue,
-        removeKeyValue
+        removeKeyValue,
+        checkIsStoreExist
     }
 }
