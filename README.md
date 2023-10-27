@@ -89,6 +89,3 @@ rxjsidb.checkIsStoreExist({
 
 * `void methods will throw new error if any trouble happens`  
 * `where an observable is returned you can subscribe on the error events as well` 
-
-### There will be a lot of new features in the future
-soon..
