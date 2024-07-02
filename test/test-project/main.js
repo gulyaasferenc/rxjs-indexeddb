@@ -22,6 +22,10 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-const idbHandler = rxjsIdb()
+console.log(rxjsIdb)
 
-console.log(idbHandler)
+rxjsIdb
+  .createDb({
+    dbName: 'test-db',
+  })
+  .subscribe((db) => console.log(db))

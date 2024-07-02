@@ -6,14 +6,12 @@ import updateValue from './methods/updateValue'
 import removeKeyValue from './methods/removeKeyValue'
 import checkIsStoreExist from './methods/checkIsStoreExist'
 
-export default () => {
-  return {
-    createDb,
-    createStore,
-    add,
-    getValue,
-    updateValue,
-    removeKeyValue,
-    checkIsStoreExist,
-  }
+export default {
+  createDb,
+  createStore,
+  add,
+  getValue,
+  updateValue,
+  removeKeyValue,
+  checkIsStoreExist,
 }
