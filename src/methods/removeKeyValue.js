@@ -1,6 +1,4 @@
-import rxjs from 'rxjs'
-
-const { fromEvent, Observable } = rxjs
+import { fromEvent, Observable } from 'rxjs'
 
 export default ({ dbName, storeName, key }) => {
   const myDb = window.indexedDB.open(dbName)
