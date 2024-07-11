@@ -4,8 +4,6 @@ export default ({ dbName, storeName }) => {
   return new Observable((subject) => {
     const myDb = window.indexedDB.open(dbName)
 
-    console.log(myDb)
-
     const onDBSuccess = fromEvent(myDb, 'success')
     const onDBError = fromEvent(myDb, 'error')
 

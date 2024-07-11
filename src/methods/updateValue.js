@@ -17,32 +17,18 @@ export default ({ dbName, storeName, key, value, options = null }) => {
         .transaction([storeName], 'readwrite')
         .objectStore(storeName)
 
-      const request = os.get(key)
+      const update = os.put(data, key)
 
-      const onSuccess = fromEvent(request, 'success')
-      const onError = fromEvent(request, 'error')
-      onSuccess.subscribe((resp) => {
-        let data = resp.target.result
+      const updateSuccess = fromEvent(update, 'success')
+      const updateError = fromEvent(update, 'error')
 
-        data = value
-
-        const update = os.put(data, key)
-
-        const updateSuccess = fromEvent(update, 'success')
-        const updateError = fromEvent(update, 'error')
-
-        updateError.subscribe((error) => {
-          subject.error(error)
-        })
-
-        updateSuccess.subscribe((resp) => {
-          const toNext = {}
-          toNext[key] = data
-          subject.next(toNext)
-        })
-      })
-      onError.subscribe((error) => {
+      updateError.subscribe((error) => {
         subject.error(error)
+      })
+
+      updateSuccess.subscribe((resp) => {
+        const toNext = { [key]: data }
+        subject.next(toNext)
       })
     })
   })

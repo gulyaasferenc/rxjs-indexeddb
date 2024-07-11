@@ -4,15 +4,12 @@ export default ({ dbName, storeName, options = null }) => {
   return new Observable((subject) => {
     console.log('RUNNING')
     window.indexedDB.databases().then((dbs) => {
-      console.log(dbs)
       const currentVersion = dbs.find((el) => el.name === dbName).version
 
       const myDb = window.indexedDB.open(dbName, +currentVersion + 1)
 
       const onSuccess = fromEvent(myDb, 'upgradeneeded')
       const onError = fromEvent(myDb, 'error')
-
-      console.log('RUNNING', onSuccess, currentVersion, myDb)
 
       onError.subscribe((error) => {
         console.log(error)
@@ -21,7 +18,6 @@ export default ({ dbName, storeName, options = null }) => {
 
       onSuccess.subscribe((db) => {
         const myDatabase = db.target.result
-        console.log('CREATING')
         subject.next(myDatabase.createObjectStore(storeName, options))
       })
     })

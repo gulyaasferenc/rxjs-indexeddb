@@ -24,12 +24,10 @@ export default ({ dbName, storeName, values = [] }) => {
         const trError = fromEvent(transaction, 'error')
 
         tr.subscribe((event) => {
-          myDb.close()
           subject.next(event)
         })
 
         trError.subscribe((error) => {
-          myDb.close()
           subject.error(error.target.error)
         })
       } catch (error) {
