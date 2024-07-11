@@ -6,14 +6,13 @@ export default ({ dbName, version }) => {
   const onCreateDbError = fromEvent(DBOpenRequest, 'error')
   const onCreateDb = fromEvent(DBOpenRequest, 'success')
 
-  const getDbInstance = new Observable((subs) => {
+  return new Observable((subs) => {
     onCreateDb.subscribe((data) => {
+      data.target.result.close()
       subs.next(data.target.result)
     })
     onCreateDbError.subscribe((err) => {
       subs.error(err)
     })
   })
-
-  return getDbInstance
 }

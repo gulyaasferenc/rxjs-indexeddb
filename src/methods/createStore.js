@@ -1,25 +1,29 @@
-import { fromEvent } from 'rxjs'
+import { fromEvent, Observable } from 'rxjs'
 
 export default ({ dbName, storeName, options = null }) => {
-  window.indexedDB.databases().then((dbs) => {
-    const currentVersion = dbs.find((el) => el.name === dbName).version
+  return new Observable((subject) => {
+    console.log('RUNNING')
+    window.indexedDB.databases().then((dbs) => {
+      console.log(dbs)
+      const currentVersion = dbs.find((el) => el.name === dbName).version
 
-    const myDb = window.indexedDB.open(dbName, +currentVersion + 1)
+      const myDb = window.indexedDB.open(dbName, +currentVersion + 1)
 
-    const onSuccess = fromEvent(myDb, 'upgradeneeded')
-    const onError = fromEvent(myDb, 'error')
+      const onSuccess = fromEvent(myDb, 'upgradeneeded')
+      const onError = fromEvent(myDb, 'error')
 
-    onError.subscribe((error) => {
-      throw new Error(error)
-    })
+      console.log('RUNNING', onSuccess, currentVersion, myDb)
 
-    onSuccess.subscribe((db) => {
-      const myDb = db.target.result
-      try {
-        myDb.createObjectStore(storeName, options)
-      } catch (error) {
-        throw new Error(error)
-      }
+      onError.subscribe((error) => {
+        console.log(error)
+        subject.error('Db open error')
+      })
+
+      onSuccess.subscribe((db) => {
+        const myDatabase = db.target.result
+        console.log('CREATING')
+        subject.next(myDatabase.createObjectStore(storeName, options))
+      })
     })
   })
 }

@@ -3,6 +3,7 @@ import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 
 import rxjsIdb from '../../src/index.js'
+import { map, of, switchMap } from 'rxjs'
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -22,10 +23,35 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-console.log(rxjsIdb)
+const dbName = 'test-db'
+const storeName = 'test-store'
 
-rxjsIdb
+const flow$ = rxjsIdb
   .createDb({
-    dbName: 'test-db',
+    dbName,
   })
-  .subscribe((db) => console.log(db))
+  .pipe(
+    switchMap(() => {
+      return rxjsIdb.checkIsStoreExist({ dbName, storeName })
+    }),
+    switchMap((isExist) => {
+      if (isExist) {
+        return of(isExist)
+      } else {
+        return rxjsIdb.createStore({ dbName, storeName })
+      }
+    })
+  )
+
+flow$.subscribe(() => {
+  rxjsIdb
+    .add({
+      dbName,
+      storeName,
+      values: [
+        { value: 'test1000', key: 'test1' },
+        { value: 'test2', key: 'test2' },
+      ],
+    })
+    .subscribe((res) => console.log(res, 'JEEE'))
+})

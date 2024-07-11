@@ -1,8 +1,10 @@
 import { fromEvent, Observable } from 'rxjs'
 
-export default ({ dbName, storeName, options = null }) => {
-  const returnSubs = new Observable((subject) => {
+export default ({ dbName, storeName }) => {
+  return new Observable((subject) => {
     const myDb = window.indexedDB.open(dbName)
+
+    console.log(myDb)
 
     const onDBSuccess = fromEvent(myDb, 'success')
     const onDBError = fromEvent(myDb, 'error')
@@ -13,9 +15,9 @@ export default ({ dbName, storeName, options = null }) => {
 
     onDBSuccess.subscribe((db) => {
       const myDb = db.target.result
-      subject.next(myDb.objectStoreNames.contains(storeName))
+      const isExist = myDb.objectStoreNames.contains(storeName)
+      myDb.close()
+      subject.next(isExist)
     })
   })
-
-  return returnSubs
 }
