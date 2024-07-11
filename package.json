@@ -1,13 +1,36 @@
 {
   "name": "rxjs-indexddb",
   "version": "0.1.0",
-  "description": "'manage your indexed db with rxjs observables'",
-  "main": "index.js",
+  "description": "manage your indexed db with rxjs observables",
   "repository": "https://github.com/gulyaasferenc/rxjs-indexeddb",
   "author": "gulyaasferenc",
   "license": "MIT",
-  "private": false,
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/rxjs-indexeddb.umd.cjs",
+  "module": "./dist/rxjs-indexeddb.js",
+  "exports": {
+    ".": {
+      "import": "./dist/rxjs-indexeddb.js",
+      "require": "./dist/rxjs-indexeddb.umd.cjs"
+    }
+  },
+  "scripts": {
+    "start": "http-server ./ -p 3000",
+    "build": "vite build"
+  },
   "dependencies": {
-    "rxjs": "^6.6.3"
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "@types/node": "^20.14.9",
+    "http-server": "^14.1.1",
+    "vite": "^5.3.2"
+  },
+  "peerDependencies": {
+    "rxjs": "^7.8.1"
   }
 }
